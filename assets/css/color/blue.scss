@@ -1,14 +1,12 @@
-@import '../main.css';
-@import '../header.css';
-@import '../logo.css';
-@import '../pagination.css';
-@import '../post.css';
-@import '../syntax.css';
-@import '../variables.css';
+$accent: #23B0FF;
+$background: mix($accent, #1D1E28, 2%);
+$color: white;
+$border-color: rgba(255, 255, 255, .1);
 
-:root {
-  $accent: #23B0FF;
-  --background: color($accent blend(#1D1E28 98%));
-  --color: white;
-  --border-color: rgba(255, 255, 255, .1);
-}
+@import '../main';
+@import '../header';
+@import '../logo';
+@import '../pagination';
+@import '../post';
+@import '../syntax-monokai';
+@import '../variables';
