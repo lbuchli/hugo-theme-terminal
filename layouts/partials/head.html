@@ -5,12 +5,14 @@
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="{{ .Permalink }}" />
 
-{{ template "_internal/google_analytics.html" . }}
+<!-- {{ template "_internal/google_analytics.html" . }} -->
 
 <!-- Theme CSS -->
-<link rel="stylesheet" href="{{ "assets/style.css" | absURL }}">
+{{ $style := resources.Get "css/style.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
 {{ if (ne $.Site.Params.ThemeColor "orange") }}
-  <link rel="stylesheet" href="{{ (printf "assets/%s.css" $.Site.Params.ThemeColor) | absURL }}">
+  {{ $color_style := resources.Get (printf "css/color/%s.scss" $.Site.Params.ThemeColor) | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $color_style.Permalink }}">
 {{ end }}
 
 <!-- Custom CSS to override theme properties (/static/style.css) -->
@@ -36,7 +38,7 @@
 <!-- OG data -->
 <meta property="og:locale" content="{{ $.Site.Language.Lang }}" />
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
-<meta property="og:title" content="{{ if .IsHome }}{{ $.Site.Title }}{{ else }}{{ .Title }} :: {{ $.Site.Title }}{{ end }}">
+<meta property="og:title" content="{{ if .IsHome }}{{ $.Site.Title }}{{ else }}{{ .Title }} | {{ $.Site.Title }}{{ end }}">
 <meta property="og:description" content="{{ if .IsHome }}{{ $.Site.Params.Subtitle }}{{ else if .Description}}{{ .Description | plainify }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta property="og:site_name" content="{{ .Title }}" />

@@ -5,10 +5,9 @@
 
   &__inner {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     margin: 0;
-    width: 760px;
     max-width: 100%;
 
     @media (--tablet) {

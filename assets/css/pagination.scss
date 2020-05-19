@@ -9,13 +9,13 @@
     display: flex;
     text-align: center;
     position: relative;
-    margin: 100px 0 20px;
+    margin: 50px 0 20px;
 
     &-h {
       text-align: center;
       margin: 0 auto;
-      padding: 5px 10px;
-      background: color-mod(var(--accent) blend(#1D1E28 98%));
+      padding: 3rem 10px 0 10px;
+      background: transparent;
       font-size: .8rem;
       text-transform: uppercase;
       text-decoration: none;
@@ -30,6 +30,7 @@
       width: 100%;
       margin-top: 15px;
       z-index: 0;
+      height: 3px;
     }
   }
 
