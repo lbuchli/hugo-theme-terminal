@@ -5,10 +5,15 @@
 
   &__inner {
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    justify-content: center;
     margin: 0;
     max-width: 100%;
+
+    .vertical-rule {
+      border-left: 2px solid #fff;
+      margin: auto .5rem;
+      height: 1rem;
+    }
 
     @media (--tablet) {
       flex-direction: column;
@@ -19,17 +24,12 @@
     color: inherit;
   }
 
-  .copyright {
+  .copyright, .generated-by, .theme-by {
     display: flex;
     flex-direction: row;
-    align-items: center;
     font-size: 1rem;
-    color: var(--light-color-secondary);
-
-    &--user {
-      margin: auto;
-      text-align: center;
-    }
+    margin: auto .5rem; 
+    text-align: center;
 
     & > *:first-child:not(:only-child) {
       margin-right: 10px;
